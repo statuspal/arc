@@ -7,7 +7,7 @@ defmodule Arc.Storage.Local do
     if binary = file.binary do
       File.write!(path, binary)
     else
-      File.copy!(file.path, path)
+      File.cp_r!(file.path, path)
     end
 
     {:ok, file.file_name}
