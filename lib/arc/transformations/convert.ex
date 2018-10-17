@@ -4,6 +4,8 @@ defmodule Arc.Transformations.Convert do
     args     = if is_function(args), do: args.(file.path, new_path), else: [file.path | (String.split(args, " ") ++ [new_path])]
     program  = to_string(cmd)
 
+    IO.puts "Arc.Transformations.Convert.apply"
+
     ensure_executable_exists!(program)
 
     case System.cmd(program, args_list(args), stderr_to_stdout: true) do
@@ -12,6 +14,7 @@ defmodule Arc.Transformations.Convert do
       {error_message, _exit_code} ->
         {:error, error_message}
     end
+    |> IO.inspect()
   end
 
   defp args_list(args) when is_list(args), do: args
