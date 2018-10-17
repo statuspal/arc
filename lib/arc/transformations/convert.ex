@@ -5,6 +5,7 @@ defmodule Arc.Transformations.Convert do
     program  = to_string(cmd)
 
     IO.puts "Arc.Transformations.Convert.apply"
+    IO.inspect([program, args_list(args)])
 
     ensure_executable_exists!(program)
 
