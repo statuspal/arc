@@ -61,5 +61,6 @@ defmodule Arc.Actions.Store do
         file      = %Arc.File{file | file_name: file_name}
         definition.__storage.put(definition, version, {file, scope})
     end
+    |> IO.inspect()
   end
 end
